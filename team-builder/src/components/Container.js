@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import uuid from "uuid";
 
 
-
+const initialTeamList = [
+        { id: uuid(), name: 'gabe'},
+        { id: uuid(), name: 'luke'},
+        { id: uuid(), name: 'josh'},
+      ];
 
 const Container = props => {
 
