@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import uuid from "uuid";
 
 
+
 const initialTeamList = [
-        { id: uuid(), name: 'gabe' },
-        { id: uuid(), name: 'luke' },
-        { id: uuid(), name: 'josh' },
+        { id: uuid(), name: "gabe",  email: "gabe@gmail.com" , role: "UX Design"},
+        { id: uuid(), name: "luke",  email: "luke@gmail.com", role: "FrontEnd Engineer"},
+        { id: uuid(), name: "josh",  email: "josh@gmail.com", role: "BackEnd Engineer"},
 ];
 
 const Container = props => {
@@ -17,7 +18,9 @@ const Container = props => {
                 {
                 teamList.map(teamMember => (
                         <h5 key={teamMember.id}>
-                                {teamMember.name}
+                                {teamMember.name} <br/>
+                                {teamMember.email}<br/>
+                                {teamMember.role}<br/>
                           </h5>
                 ))
         }
