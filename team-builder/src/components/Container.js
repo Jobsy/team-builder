@@ -58,9 +58,15 @@ const Container = props => {
     setTeamList(newTeamList);
     setTeamForm(initialTeamForm);
   };
-  
+
   return (
     <div>
+      <Form 
+      onNameChange={onNameChange}
+      onEmailChange={onEmailChange}
+      onRoleChange={onRoleChange}
+      onFormSubmit={onFormSubmit}
+      />
       {
         teamList.map(teamMember => (
           <h5 key={teamMember.id}>
@@ -86,7 +92,7 @@ return (
     <label htmlFor="nameInput">Name</label>
     <input
       maxLength={50}
-      value={name}
+      // value={name}
       onchange={onNameChange}
       id="nameInput"
       type="text"
