@@ -88,12 +88,12 @@ function Form(props) {
   const { onNameChange, onEmailChange, onRoleChange, onFormSubmit } = props;
   const { name, email, role } = props.teamForm;
 
-  // const isDisabled = () => {
-  //   if (!name || !email || role) {
-  //     return true;
-  //   }  
-  //   return false;
-  // };
+  const isDisabled = () => {
+    if (!name || !email || !role) {
+      return true;
+    }  
+    return false;
+  };
 
     return (
       <form>
@@ -127,7 +127,9 @@ function Form(props) {
         />
         <br />
 
-        <button onClick={onFormSubmit}>
+        <button
+        disabled={isDisabled()}
+        onClick={onFormSubmit}>
           Submit
         </button>
 
