@@ -67,6 +67,7 @@ export default function Container() {
         onEmailChange={onEmailChange}
         onRoleChange={onRoleChange}
         onFormSubmit={onFormSubmit}
+        teamForm={teamForm}
       />
       {
         teamList.map(teamMember => (
@@ -85,12 +86,12 @@ export default function Container() {
 
 function Form(props) {
   const { onNameChange, onEmailChange, onRoleChange, onFormSubmit } = props;
-  // const { name, email, role } = props.teamForm;
+  const { name, email, role } = props.teamForm;
 
   // const isDisabled = () => {
   //   if (!name || !email || role) {
   //     return true;
-  //   }
+  //   }  
   //   return false;
   // };
 
@@ -99,7 +100,7 @@ function Form(props) {
         <label htmlFor="nameInput">Name</label>
         <input
           maxLength={50}
-          // value={name}
+          value={name}
           onChange={onNameChange}
           id="nameInput"
           type="text"
@@ -109,7 +110,7 @@ function Form(props) {
         <label htmlFor="nameInput">Email</label>
         <input
           maxLength={50}
-          // value={email}
+          value={email}
           onChange={onEmailChange}
           id="emailInput"
           type="email"
@@ -119,7 +120,7 @@ function Form(props) {
         <label htmlFor="nameInput">Role</label>
         <input
           maxLength={50}
-          // value={role}
+          value={role}
           onChange={onRoleChange}
           id="roleInput"
           type="text"
