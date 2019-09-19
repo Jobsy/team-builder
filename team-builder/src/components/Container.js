@@ -15,14 +15,14 @@ const initialTeamForm = {
   role: '',
 };
 
-const Container = props => {
+export default function Container() {
 
   const [teamList, setTeamList] = useState(initialTeamList);
   const [teamForm, setTeamForm] = useState(initialTeamForm);
 
 
   const onNameChange = e => {
-    setTeamForm ({
+    setTeamForm({
       name: e.target.value,
       email: teamForm.email,
       role: teamForm.role,
@@ -30,7 +30,7 @@ const Container = props => {
   }
 
   const onEmailChange = e => {
-    setTeamForm ({
+    setTeamForm({
       name: teamForm.name,
       email: e.target.value,
       role: teamForm.role,
@@ -38,7 +38,7 @@ const Container = props => {
   }
 
   const onRoleChange = e => {
-    setTeamForm ({
+    setTeamForm({
       name: teamForm.name,
       email: teamForm.email,
       role: e.target.value,
@@ -46,7 +46,7 @@ const Container = props => {
   }
 
   const onFormSubmit = e => {
-    e.prevntDefault();
+    e.preventDefault();
     const newTeamMember = {
       id: uuid(),
       name: teamForm.name,
@@ -61,11 +61,12 @@ const Container = props => {
 
   return (
     <div>
-      <Form 
-      onNameChange={onNameChange}
-      onEmailChange={onEmailChange}
-      onRoleChange={onRoleChange}
-      onFormSubmit={onFormSubmit}
+       
+      <Form
+        onNameChange={onNameChange}
+        onEmailChange={onEmailChange}
+        onRoleChange={onRoleChange}
+        onFormSubmit={onFormSubmit}
       />
       {
         teamList.map(teamMember => (
@@ -84,44 +85,56 @@ const Container = props => {
 
 function Form(props) {
   const { onNameChange, onEmailChange, onRoleChange, onFormSubmit } = props;
-  const { name, email, role } = props.teamForm;
-};
+  // const { name, email, role } = props.teamForm;
 
-return (
-  <form>
-    <label htmlFor="nameInput">Name</label>
-    <input
-      maxLength={50}
-      // value={name}
-      onchange={onNameChange}
-      id="nameInput"
-      type="text"
-    />
+  // const isDisabled = () => {
+  //   if (!name || !email || role) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
 
-    <label htmlFor="nameInput">Email</label>
-    <input
-      maxLength={50}
-      value={email}
-      onchange={onEmailChange}
-      id="emailInput"
-      type="email"
-    />
+    return (
+      <form>
+        <label htmlFor="nameInput">Name</label>
+        <input
+          maxLength={50}
+          // value={name}
+          onChange={onNameChange}
+          id="nameInput"
+          type="text"
+        />
+        <br />
 
-    <label htmlFor="nameInput">Role</label>
-    <input
-      maxLength={50}
-      value={role}
-      onchange={onRoleChange}
-      id="roleInput"
-      type="text"
-    />
+        <label htmlFor="nameInput">Email</label>
+        <input
+          maxLength={50}
+          // value={email}
+          onChange={onEmailChange}
+          id="emailInput"
+          type="email"
+        />
+        <br />
 
-    
+        <label htmlFor="nameInput">Role</label>
+        <input
+          maxLength={50}
+          // value={role}
+          onChange={onRoleChange}
+          id="roleInput"
+          type="text"
+        />
+        <br />
 
-  </form>
-)
+        <button onClick={onFormSubmit}>
+          Submit
+        </button>
+
+      </form>
+    )
+  };
 
 
 
 
-export default Container;
+// export default Container; 
